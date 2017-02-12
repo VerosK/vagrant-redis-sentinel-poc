@@ -1,0 +1,6 @@
+[submodule "roles/VerosK.haproxy-redis-sentinel"]
+	path = roles/VerosK.haproxy-redis-sentinel
+	url = https://github.com/VerosK/ansible-haproxy-redis
+[submodule "roles/Verosk.redis-sentinel"]
+	path = roles/VerosK.redis-sentinel
+	url = https://github.com/VerosK/ansible-redis-sentinel-role

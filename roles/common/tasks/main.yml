@@ -1,0 +1,17 @@
+---
+- name: "Check ansible >= 2.2" # because of docker_image module fix
+  assert:
+    assert:
+    that:
+     - 'ansible_version.major is number'
+     - '(ansible_version.major == 2) and (ansible_version.minor >= 2)'
+
+- name: Flush Ansible handlers
+  meta: flush_handlers
+
+- name: Refresh APT cache when needed
+  apt:
+    name: psmisc
+    state: present
+    update_cache: yes
+    cache_valid_time: 86400

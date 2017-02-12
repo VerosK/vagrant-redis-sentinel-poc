@@ -1,0 +1,11 @@
+---
+redis_replication_master_address: "192.168.9.41"
+redis_bind_interface: "0.0.0.0"
+redis_port: '6378'  # use specific port for redis daemon
+
+haproxy_stats_host: "0.0.0.0"
+haproxy_redis_port: 6379
+haproxy_redis_backends:
+    left_redis: "192.168.9.41:{{ redis_port }}"
+    right_redis: "192.168.9.42:{{ redis_port }}"
+    center_redis: "192.168.9.40:{{ redis_port }}"

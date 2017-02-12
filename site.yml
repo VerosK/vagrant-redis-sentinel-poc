@@ -1,0 +1,14 @@
+---
+- name: Setup basic config
+  hosts: all
+  any_errors_fatal: True
+  roles:
+  - role: common
+
+- name: Setup redis cluster with HAProxy
+  hosts: all
+  any_errors_fatal: True
+  tags: redis
+  roles:
+    - role: VerosK.redis-sentinel
+    - role: VerosK.haproxy-redis-sentinel
