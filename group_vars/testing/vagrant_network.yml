@@ -1,0 +1,3 @@
+redis_master_ip: 192.168.9.64
+redis_master_netmask: 24
+redis_nic: enp0s8

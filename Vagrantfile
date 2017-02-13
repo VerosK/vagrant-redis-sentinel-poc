@@ -5,8 +5,8 @@
 BOX_NAME = "geerlingguy/ubuntu1604"
 #BOX_NAME = "ubuntu/xenial64"       # doesn't work for now
 
-ANSIBLE_MODE = :ansible # faster
-#ANSIBLE_MODE = :ansible_local # safer
+#ANSIBLE_MODE = :ansible # faster
+ANSIBLE_MODE = :ansible_local # safer
 
 # choose one
 VAGRANTFILE_API_VERSION = "2"

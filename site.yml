@@ -12,3 +12,20 @@
   roles:
     - role: VerosK.redis-sentinel
     - role: VerosK.haproxy-redis-sentinel
+    - role: VerosK.corosync
+    - role: VerosK.pacemaker
+
+  tasks:
+  - name: "Set up floating IP address"
+    run_once: yes
+    pcs_resource:
+      command: create
+      resource_id: floating_address
+      type: ocf:heartbeat:IPaddr2
+      options:
+        ip: '{{ redis_master_ip }}'
+        cidr_netmask: '{{ redis_master_netmask }}'
+        nic: '{{ redis_nic }}'
+      operations:
+        - action: monitor
+          options: { interval: "10s" }

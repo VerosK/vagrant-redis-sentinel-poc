@@ -1,0 +1,36 @@
+corosync_cluster_name: "redis"
+corosync_authkey: 1b6cd07ea5355816052919a058717c2a61ebf4e0ff6af5e5bb74ed25d01c03b88f1e5f9eb6428c475dbe7ea458b6c51139cd268e735918ea0df68f7de2c6cc39
+corosync_token: 3000
+corosync_transport: udpu
+corosync_interfaces:
+    - bindnetaddr: '{{ ansible_enp0s8.ipv4.address }}'
+
+corosync_nodes:
+   - id: 1
+     members: [192.168.9.41]
+     name: left
+   - id: 2
+     members: [192.168.9.42]
+     name: right
+   - id: 3
+     members: [192.168.9.40]
+     name: arbiter
+
+
+corosync_quorum: true
+corosync_quorum_two_node: false
+corosync_secauth: 'off'
+
+pacemaker_firewalld: false
+
+pacemaker_properties:
+  - name: stonith-enabled
+    value: 'false'
+#  - name: no-quorum-policy
+#    value: freeze
+  - name: have-watchdog
+    value: 'false'
+#  - name: symmetric-cluster
+#    value: false
+  - name: enable-acl
+    value: 'false'

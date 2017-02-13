@@ -6,6 +6,12 @@
      - 'ansible_version.major is number'
      - '(ansible_version.major == 2) and (ansible_version.minor >= 2)'
 
+- name: "Drop myself from /etc/hosts"
+  lineinfile:
+    destfile: /etc/hosts
+    regexp: '^127.0.0.1\s+.*\b{{ ansible_hostname }}\b'
+    state: absent
+
 - name: Flush Ansible handlers
   meta: flush_handlers
 

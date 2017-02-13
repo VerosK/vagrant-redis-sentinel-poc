@@ -4,3 +4,9 @@
 [submodule "roles/Verosk.redis-sentinel"]
 	path = roles/VerosK.redis-sentinel
 	url = https://github.com/VerosK/ansible-redis-sentinel-role
+[submodule "roles/VerosK.corosync"]
+	path = roles/VerosK.corosync
+	url = https://github.com/VerosK/ansible-corosync
+[submodule "roles/VerosK.pacemaker"]
+	path = roles/VerosK.pacemaker
+	url = https://github.com/VerosK/ansible-pacemaker
